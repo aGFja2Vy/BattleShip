@@ -10,8 +10,9 @@ package battleship;
  * @author 956040525
  */
 public class Player {
-                public int[][] LastShots = new int[2, 5];
-		public int[][] CurrentShot = new int[2, 1];
+    BattleShip Program = new BattleShip();
+                public int[][] LastShots = new int[2][5];
+		public int[][] CurrentShot = new int[2][1];
 
 		public static void Display_Board(char[][] board, char[][] right_board, int arrx, int arry)
 		{
@@ -111,7 +112,7 @@ public class Player {
 			}
 		}
 
-		public static void Attack(char[][] Player_Board, char[][] AI_Board, char[][] Right_Board, int dix, int diy)
+		public void Attack(char[][] Player_Board, char[][] AI_Board, char[][] Right_Board, int dix, int diy)
 		{
 			boolean Repeat = false;
 			boolean loaded = false;
@@ -139,16 +140,16 @@ public class Player {
 								Player.Display_Board(Player_Board, Right_Board, dix, diy);
 								System.out.println();
 								System.out.println("Where would you like to shoot (X)?");
-								x = Convert.ToInt32(Console.ReadLine()) - 1;
+								x = (int) System.in.read() - 1;
 								System.out.println("Where would you like to shoot (Y)?");
-								y = Convert.ToInt32(Console.ReadLine()) - 1;
+								y = (int) System.in.read() - 1;
 
 								CurrentShot[0][0] = x + 1;
 								CurrentShot[1][0] = y + 1;
 
 								loaded = true;
 								Repeat = true;
-								Console.Clear();
+								Program.clearScreen();
 
 							}
 							else if (answer == 'h')
@@ -168,7 +169,7 @@ public class Player {
 						{
 							Repeat = false;
 							Player.Display_Board(Player_Board, Right_Board, dix, diy);
-							char answer = Program.Options(CurrentShot[0, 0], CurrentShot[1, 0]);
+							char answer = Program.Options(CurrentShot[0][0], CurrentShot[1][0]);
 							Broken = false;
 
 							if (answer == 'n')
@@ -176,21 +177,21 @@ public class Player {
 								Player.Display_Board(Player_Board, Right_Board, dix, diy);
 								System.out.println();
 								System.out.println("Where would you like to shoot (X)?");
-								x = Convert.ToInt32(Console.ReadLine()) - 1;
+								x = (int) System.in.read() - 1;
 								System.out.println("Where would you like to shoot (Y)?");
-								y = Convert.ToInt32(Console.ReadLine()) - 1;
+								y = (int) System.in.read() - 1;
 
-								CurrentShot[0, 0] = x + 1;
-								CurrentShot[1, 0] = y + 1;
+								CurrentShot[0][0] = x + 1;
+								CurrentShot[1][0] = y + 1;
 								Repeat = true;
-								Console.Clear();
+								Program.clearScreen();
 
 							}
 							else if (answer == 'l')
 							{
-								bool validAI = Board.Check_Valid(AI_Board, x, y);
-								bool validPL = Board.Check_Valid(Player_Board, x, y);
-								bool hit = Board.Check_Hit(AI_Board, x, y);
+								boolean validAI = Board.Check_Valid(AI_Board, x, y);
+								boolean validPL = Board.Check_Valid(Player_Board, x, y);
+								boolean hit = Board.Check_Hit(AI_Board, x, y);
 
 								if (!validAI || !validPL)
 								{
@@ -201,12 +202,12 @@ public class Player {
 								if (hit && validAI && validPL)
 								{
 									System.out.println("Hit");
-									Player_Board[x, y] = 'H';
+									Player_Board[x][y] = 'H';
 								}
 								else if (!hit && validAI && validPL)
 								{
 									System.out.println("Miss");
-									Player_Board[x, y] = 'X';
+									Player_Board[x][y] = 'X';
 								}
 
 								loaded = false;
@@ -228,7 +229,7 @@ public class Player {
 				}
 				catch(Exception e)
 				{
-					Console.Clear();
+					Program.clearScreen();
 					Program.CenterText("Something went wrong... Please try again.");
 					Broken = true;
 				}
