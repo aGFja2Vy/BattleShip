@@ -56,7 +56,7 @@ public class Board {
 							coorx = (int) System.in.read() - 1;
 							System.out.println();
 						}
-						catch
+						catch(Exception e)
 						{
 							System.out.println("Hey! That is not allowed. Try again.");
 							Broken = true;
@@ -73,7 +73,7 @@ public class Board {
 							coory = (int) System.in.read() - 1;
 							System.out.println();
 						}
-						catch
+						catch(Exception e)
 						{
 							System.out.println("Hey! That is not allowed. Try again.");
 							Broken = true;
@@ -93,7 +93,7 @@ public class Board {
 							veiw = (int) System.in.read();
 							System.out.println();
 						}
-						catch
+						catch(Exception e)
 						{
 							System.out.println("Hey! That is not allowed. Try again.");
 							Broken = true;
@@ -165,7 +165,7 @@ public class Board {
 							coorx = (int) System.in.read() - 1;
 							System.out.println();
 						}
-						catch
+						catch(Exception e)
 						{
 							System.out.println("There was a problem with that input. Try again.");
 							Broken = true;
@@ -182,7 +182,7 @@ public class Board {
 							coory = (int) System.in.read() - 1;
 							System.out.println();
 						}
-						catch
+						catch(Exception e)
 						{
 							System.out.println("There was a problem with that input. Try again.");
 							Broken = true;
@@ -201,7 +201,7 @@ public class Board {
 							veiw = (int) System.in.read();
 							System.out.println();
 						}
-						catch
+						catch(Exception e)
 						{
 							System.out.println("There was a problem with that input. Try again.");
 							Broken = true;
@@ -271,7 +271,7 @@ public class Board {
 							coorx = (int) System.in.read() - 1;
 							System.out.println();
 						}
-						catch
+						catch(Exception e)
 						{
 							System.out.println("There was a problem with that input. Try again.");
 							Broken = true;
@@ -288,7 +288,7 @@ public class Board {
 							coory = (int) System.in.read() - 1;
 							System.out.println();
 						}
-						catch
+						catch(Exception e)
 						{
 							System.out.println("There was a problem with that input. Try again.");
 							Broken = true;
@@ -307,7 +307,7 @@ public class Board {
 							veiw = (int) System.in.read();
 							System.out.println();
 						}
-						catch
+						catch(Exception e)
 						{
 							System.out.println("There was a problem with that input. Try again.");
 							Broken = true;
@@ -374,7 +374,7 @@ public class Board {
 							coorx = (int) System.in.read() - 1;
 							System.out.println();
 						}
-						catch
+						catch(Exception e)
 						{
 							System.out.println("There was a problem with that input. Try again.");
 							Broken = true;
@@ -391,7 +391,7 @@ public class Board {
 							coory = (int) System.in.read() - 1;
 							System.out.println();
 						}
-						catch
+						catch(Exception e)
 						{
 							System.out.println("There was a problem with that input. Try again.");
 							Broken = true;
@@ -410,7 +410,7 @@ public class Board {
 							veiw = (int) System.in.read();
 							System.out.println();
 						}
-						catch
+						catch(Exception e)
 						{
 							System.out.println("There was a problem with that input. Try again.");
 							Broken = true;
@@ -468,7 +468,7 @@ public class Board {
 				else
 					return false;
 			}
-			catch
+			catch(Exception e)
 			{
 				return false;
 			}
@@ -488,7 +488,7 @@ public class Board {
 					return true;
 				return false;
 			}
-			catch
+			catch(Exception e)
 			{
 				return false;
 			}
@@ -575,7 +575,7 @@ public class Board {
 				else
 					return false;
 			}
-			catch
+			catch(Exception e)
 			{
 				return false;
 			}

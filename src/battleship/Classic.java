@@ -19,6 +19,9 @@ public class Classic
 {
     BufferedReader in = new BufferedReader(new InputStreamReader(System.in)); 
     BattleShip Program = new BattleShip();
+    Board Board = new Board();
+    AI AI = new AI();
+    Player Player = new Player();
     
     public void Game()
 		{
@@ -46,7 +49,7 @@ public class Classic
 			{
 				//Console.Clear();
 				Player.Attack(Left_Board, AI_Board, Right_Board, Program.ArryValues[0], Program.ArryValues[1]);
-				Console.WriteLine();
+				System.out.println();
 				AI.Attack(AI_Board, Right_Board, Program.ArryValues[0], Program.ArryValues[1]);
 				Player_Alive = Board.CheckGame(Right_Board, Program.ArryValues[0], Program.ArryValues[1]);
 				AI_Alive = Board.CheckGame(AI_Board, Program.ArryValues[0], Program.ArryValues[1]);
