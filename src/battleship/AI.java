@@ -75,11 +75,11 @@ public class AI {
 
 		public void AI_Setup(char[][] board, int arrx, int arry)
 		{
-                    RandomCoordinates rand = Something();
-			int Ship5 = Program.Ships[0];
-			int Ship4 = Program.Ships[1];
-			int Ship3 = Program.Ships[2];
-			int Ship2 = Program.Ships[3];
+                    RandomCoordinates rands = Something();
+			int Ship5 = BattleShip.Ships[0];
+			int Ship4 = BattleShip.Ships[1];
+			int Ship3 = BattleShip.Ships[2];
+			int Ship2 = BattleShip.Ships[3];
 			int x = 0;
                         int y = 0;
                         int view = 0;
@@ -87,8 +87,8 @@ public class AI {
 
 			while (Ship5 > 0)
 			{
-				x = rand.getX();
-                                y = rand.getY();
+				x = rands.getX();
+                                y = rands.getY();
 				view = Random_View();
 				worked = Ship_Placement(board, x, y, view, 5);
 				if (worked)
@@ -96,8 +96,8 @@ public class AI {
 			}
 			while (Ship4 > 0)
 			{
-				x = rand.getX();
-                                y = rand.getY();
+				x = rands.getX();
+                                y = rands.getY();
 				view = Random_View();
 				worked = Ship_Placement(board, x, y, view, 4);
 				if (worked)
@@ -105,8 +105,8 @@ public class AI {
 			}
 			while (Ship3 > 0)
 			{
-				x = rand.getX();
-                                y = rand.getY();
+				x = rands.getX();
+                                y = rands.getY();
 				view = Random_View();
 				worked = Ship_Placement(board, x, y, view, 3);
 				if (worked)
@@ -114,8 +114,8 @@ public class AI {
 			}
 			while (Ship2 > 0)
 			{
-				x = rand.getX();
-                                y = rand.getY();
+				x = rands.getX();
+                                y = rands.getY();
 				view = Random_View();
 				worked = Ship_Placement(board, x, y, view, 2);
 				if (worked)

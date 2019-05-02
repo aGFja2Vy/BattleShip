@@ -1,7 +1,6 @@
 package battleship;
 
 import java.io.IOException;
-import static java.lang.System.in;
 import java.util.Scanner;
 
 public class Board {
@@ -33,7 +32,7 @@ public class Board {
 		public static void Set_ship(char[][] board, int arrx, int arry)
 		{
                     Scanner in = new Scanner(System.in);
-			boolean Broken = false;
+			boolean Broken;
 			int Ship5 = BattleShip.Ships[0];
 			int Ship4 = BattleShip.Ships[1];
 			int Ship3 = BattleShip.Ships[2];
@@ -66,7 +65,7 @@ public class Board {
 						try
 						{
 							System.out.println("Where do you want to place your '# # # # #' ship? (y)");
-							coory = in.nextInt() - 1;
+							coory = in.nextInt() -1;
 							System.out.println();
 						}
 						catch(Exception e)
@@ -86,7 +85,7 @@ public class Board {
 							System.out.println("How would you like your ship placed?");
 							System.out.println("Top to Bottom: 1");
 							System.out.println("Left to Right: 2");
-							veiw = in.nextInt() - 1;
+							veiw = in.nextInt();
 							System.out.println();
 						}
 						catch(Exception e)
@@ -158,7 +157,7 @@ public class Board {
 						try
 						{
 							System.out.println("Where do you want to place your '# # # #' ship? (x)");
-							coorx = (int) System.in.read() - 1;
+							coorx = in.nextInt() - 1;
 							System.out.println();
 						}
 						catch(Exception e)
@@ -175,7 +174,7 @@ public class Board {
 						try
 						{
 							System.out.println("Where do you want to place your '# # # #' ship? (y)");
-							coory = (int) System.in.read() - 1;
+							coory = in.nextInt() - 1;
 							System.out.println();
 						}
 						catch(Exception e)
@@ -194,7 +193,7 @@ public class Board {
 							System.out.println("How would you like your ship placed?");
 							System.out.println("Top to Bottom: 1");
 							System.out.println("Left to Right: 2");
-							veiw = (int) System.in.read();
+							veiw = in.nextInt();
 							System.out.println();
 						}
 						catch(Exception e)
@@ -264,7 +263,7 @@ public class Board {
 						try
 						{
 							System.out.println("Where do you want to place '# # #' ship? (x)");
-							coorx = (int) System.in.read() - 1;
+							coorx = in.nextInt() - 1;
 							System.out.println();
 						}
 						catch(Exception e)
@@ -281,7 +280,7 @@ public class Board {
 						try
 						{
 							System.out.println("Where do you want to place your '# # #' ship? (y)");
-							coory = (int) System.in.read() - 1;
+							coory = in.nextInt() - 1;
 							System.out.println();
 						}
 						catch(Exception e)
@@ -300,7 +299,7 @@ public class Board {
 							System.out.println("How would you like your ship placed?");
 							System.out.println("Top to Bottom: 1");
 							System.out.println("Left to Right: 2");
-							veiw = (int) System.in.read();
+							veiw = in.nextInt();
 							System.out.println();
 						}
 						catch(Exception e)
@@ -367,7 +366,7 @@ public class Board {
 						try
 						{
 							System.out.println("Where do you want to place your '# #' ship? (x)");
-							coorx = (int) System.in.read() - 1;
+							coorx = in.nextInt() - 1;
 							System.out.println();
 						}
 						catch(Exception e)
@@ -384,7 +383,7 @@ public class Board {
 						try
 						{
 							System.out.println("Where do you want to place your '# #' ship? (y)");
-							coory = (int) System.in.read() - 1;
+							coory = in.nextInt() - 1;
 							System.out.println();
 						}
 						catch(Exception e)
@@ -403,7 +402,7 @@ public class Board {
 							System.out.println("How would you like your ship placed?");
 							System.out.println("Top to Bottom: 1");
 							System.out.println("Left to Right: 2");
-							veiw = (int) System.in.read();
+							veiw = in.nextInt();
 							System.out.println();
 						}
 						catch(Exception e)

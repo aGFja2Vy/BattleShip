@@ -2,6 +2,7 @@ package battleship;
 import java.io.BufferedReader; 
 import java.io.IOException; 
 import java.io.InputStreamReader; 
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -13,12 +14,13 @@ public class BattleShip
             public static int ArryValues[] = { 10, 10 };
             public static void clearScreen() 
             {  
-                System.out.print("\033[H\033[2J");  
+                for (int i = 0; i < 50; ++i) System.out.println(); 
                 System.out.flush();  
             } 
             //this runs the menus and essentually the order in which everything should be called 
             public static void main (String[] args)
             {
+                Scanner in = new Scanner(System.in);
                 Classic Classic = new Classic();
 
                     //Makes it so that by default the game quits instead of forcing the player to play again
@@ -65,16 +67,8 @@ public class BattleShip
                                                                     System.out.println("1: Play Again");
                                                                     System.out.println("2: Quit");
 
-                                                                    //trys and Catchs bad input because users cannot be trusted
-                                                                    try
-                                                                    {
-                                                                            Continue = (int) System.in.read();
-                                                                    }
-                                                                    catch(Exception e)
-                                                                    {
-                                                                            System.out.println("Not a valid answer");
-                                                                            Broken = true;
-                                                                    }
+                                                                //trys and Catchs bad input because users cannot be trusted
+                                                                Continue = in.nextInt();
 
                                                             }while(Broken);
 
@@ -111,7 +105,7 @@ public class BattleShip
 
                                                                     try
                                                                     {
-                                                                            Continue = (int) System.in.read();
+                                                                            Continue = in.nextInt();
                                                                     }
                                                                     catch(Exception e)
                                                                     {
@@ -158,7 +152,7 @@ public class BattleShip
                                                                     //trys and Catchs bad input because users cannot be trusted
                                                                     try
                                                                     {
-                                                                            Continue = (int) System.in.read();
+                                                                            Continue = in.nextInt();
                                                                     }
                                                                     catch(Exception e)
                                                                     {
@@ -199,6 +193,8 @@ public class BattleShip
 
             public static void StartScreen()
             {
+                Scanner in = new Scanner(System.in);
+                
                     clearScreen();
                     System.out.println("");
                     System.out.println("");
@@ -211,16 +207,14 @@ public class BattleShip
                     System.out.println("");
                     CenterText("Welcome to Battleship, the C# version");
                     CenterText("Press any button to continue...");
-                try {
-                    System.in.read();
-                } catch (IOException ex) {
-                    Logger.getLogger(BattleShip.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                    in.nextInt();
                     clearScreen();
             }
 
             public static void Rules()
             {
+                Scanner in = new Scanner(System.in);
+                
                     clearScreen();
                     CenterText("Help Screen");
                     System.out.println();
@@ -239,18 +233,18 @@ public class BattleShip
                     CenterText("Press the H key to return to this menu after any round.");
                     System.out.println();
                     CenterText("Press any button to continue...");
-                    try {
-                    System.in.read();
-                } catch (IOException ex) {
-                    Logger.getLogger(BattleShip.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                    
+                    in.nextInt();
+                    
                     clearScreen();
             }
 
             public static char Options(int coorx, int coory)
             {
-                    boolean Broken = false;
-                    boolean Repeat = false;
+                Scanner in = new Scanner(System.in);
+                
+                    boolean Broken;
+                    boolean Repeat;
                     char answer = 'n';
                     int i = 10;
 
@@ -271,7 +265,7 @@ public class BattleShip
 
                                     try
                                     {
-                                            i = (int) System.in.read();
+                                            i = in.nextInt();
                                     }
                                     catch(Exception e)
                                     {
@@ -306,7 +300,7 @@ public class BattleShip
                                                             answer = (char) System.in.read();
                                                             System.in.read();
                                                     }
-                                                    catch(Exception e)
+                                                    catch(IOException e)
                                                     {
                                                             System.exit(1);
                                                     }
@@ -338,8 +332,10 @@ public class BattleShip
 
             public static char Options()
             {
-                    boolean Broken = false;
-                    boolean Repeat = false;
+                Scanner in = new Scanner(System.in);
+                
+                    boolean Broken;
+                    boolean Repeat;
                     char answer = 'n';
                     int i = 10;
 
@@ -360,7 +356,7 @@ public class BattleShip
 
                                     try
                                     {
-                                            i = (int) System.in.read();
+                                            i = in.nextInt();
                                     }
                                     catch(Exception e)
                                     {
@@ -385,9 +381,9 @@ public class BattleShip
                                                     try
                                                     {
                                                             answer = (char) System.in.read();
-                                                            //Console.ReadKey();
+                                                            System.in.read();
                                                     }
-                                                    catch(Exception e)
+                                                    catch(IOException e)
                                                     {
                                                             System.exit(1);
                                                     }
@@ -424,6 +420,7 @@ public class BattleShip
 
             public static int MainMenu()
             {
+                Scanner in = new Scanner(System.in);
                     //The choice they make gets stored as answer
                     int answer;
 
@@ -437,7 +434,7 @@ public class BattleShip
                             System.out.println("10: Show rules and game mode explanations.");
                             try
                             {
-                                    answer = (int) System.in.read();
+                                    answer = in.nextInt();
                             }
                             catch(Exception e)
                             {
@@ -481,10 +478,11 @@ public class BattleShip
 
             public static void SetUp()
             {
+                Scanner in = new Scanner(System.in);
                     //setup for the answer
-                    int answer_int = 0;
+                    int answer_int;
                     //if this is true something is not working right
-                    boolean Broken = false;
+                    boolean Broken;
 
                     System.out.println("Would you like to change the number of ships? (Default = 1(# # # # #) 1(# # # #) 2(# # #) 1(# #)) (Y/N)");
 
@@ -508,7 +506,7 @@ public class BattleShip
                                     try
                                     {
                                             System.out.println("How many 5 long ships do you want?");
-                                            Ships[0] = (int) System.in.read();
+                                            Ships[0] = in.nextInt();
                                             System.out.println();
                                     }
                                     catch(Exception e)
@@ -529,7 +527,7 @@ public class BattleShip
                                     try
                                     {
                                             System.out.println("How many 4 long ships do you want?");
-                                            Ships[1] = (int) System.in.read();
+                                            Ships[1] = in.nextInt();
                                             System.out.println();
                                     }
                                     catch(Exception e)
@@ -546,7 +544,7 @@ public class BattleShip
                                     try
                                     {
                                             System.out.println("How many 3 long ships do you want?");
-                                            Ships[2] = (int) System.in.read();
+                                            Ships[2] = in.nextInt();
                                             System.out.println();
                                     }
                                     catch(Exception e)
@@ -563,7 +561,7 @@ public class BattleShip
                                     try
                                     {
                                             System.out.println("How many 2 long ships do you want?");
-                                            Ships[3] = (int) System.in.read();
+                                            Ships[3] = in.nextInt();
                                             System.out.println();
                                     }
                                     catch(Exception e)
@@ -584,7 +582,7 @@ public class BattleShip
                                     answer = (char) System.in.read();
                                     System.out.println();
                             }
-                            catch(Exception e)
+                            catch(IOException e)
                             {
                                     System.out.println("Hey! That is not allowed. Try again.");
                                     Broken = true;
@@ -600,7 +598,7 @@ public class BattleShip
                                     try
                                     {
                                             System.out.println("What is the X dimension or the length of the new board size? (anything greater than 9 and less than 100 is accepted)");
-                                            answer_int = (int) System.in.read();
+                                            answer_int = in.nextInt();
                                             ArryValues[0] = answer_int;
                                             System.out.println();
 
