@@ -1,24 +1,29 @@
 package battleship;
+import java.util.Random;
 
 public class AI {
-    BattleShip Program = new BattleShip();
-    private static readonly Random rand = new Random();
+                BattleShip Program = new BattleShip();
+                Random rand = new Random();
 
 		private static int Hitx;
 		private static int Hity;
 		private static boolean Hit = false;
 		private static int attempt = 0;
-
-		public static void Random_Coor(out int x, out int y, int arrx, int arry)
+                
+                
+		public RandomCoordinates Something()
 		{
-			x = rand.Next(0, (arrx));
-			y = rand.Next(0, (arry));
+                    int x = rand.nextInt(Program.ArryValues[0]);
+                    int y = rand.nextInt(Program.ArryValues[1]);
+                        
+                    return new RandomCoordinates(x,y);
 
 		}
 
-		public static void Random_View(out int view)
+		public int Random_View()
 		{
-			view = rand.Next(1, 3);
+			int view = rand.nextInt(2) + 1;
+                        return view;
 		}
 
 		public static boolean Ship_Placement(char[][] board, int x, int y, int view, int ship_Size)
@@ -70,6 +75,7 @@ public class AI {
 
 		public void AI_Setup(char[][] board, int arrx, int arry)
 		{
+                    RandomCoordinates rand = Something();
 			int Ship5 = Program.Ships[0];
 			int Ship4 = Program.Ships[1];
 			int Ship3 = Program.Ships[2];
@@ -81,32 +87,36 @@ public class AI {
 
 			while (Ship5 > 0)
 			{
-				Random_Coor(out x, out y, arrx, arry);
-				Random_View(out view);
+				x = rand.getX();
+                                y = rand.getY();
+				view = Random_View();
 				worked = Ship_Placement(board, x, y, view, 5);
 				if (worked)
 					Ship5--;
 			}
 			while (Ship4 > 0)
 			{
-				Random_Coor(out x, out y, arrx, arry);
-				Random_View(out view);
+				x = rand.getX();
+                                y = rand.getY();
+				view = Random_View();
 				worked = Ship_Placement(board, x, y, view, 4);
 				if (worked)
 					Ship4--;
 			}
 			while (Ship3 > 0)
 			{
-				Random_Coor(out x, out y, arrx, arry);
-				Random_View(out view);
+				x = rand.getX();
+                                y = rand.getY();
+				view = Random_View();
 				worked = Ship_Placement(board, x, y, view, 3);
 				if (worked)
 					Ship3--;
 			}
 			while (Ship2 > 0)
 			{
-				Random_Coor(out x, out y, arrx, arry);
-				Random_View(out view);
+				x = rand.getX();
+                                y = rand.getY();
+				view = Random_View();
 				worked = Ship_Placement(board, x, y, view, 2);
 				if (worked)
 					Ship2--;
@@ -114,8 +124,9 @@ public class AI {
 
 		}
 
-		public static void Attack(char[][] AI_Board, char[][] Right_Board, int arrx, int arry)
+		public void Attack(char[][] AI_Board, char[][] Right_Board, int arrx, int arry)
 		{
+                        RandomCoordinates rand = Something();
 			boolean Broken = false;
 			boolean valid = false;
 			boolean hit = false;
@@ -153,7 +164,7 @@ public class AI {
 								else
 								{
 									Hity--;
-									throw new System.ArgumentException();
+									throw new IllegalArgumentException();
 								}
 
 							case 2:
@@ -177,7 +188,7 @@ public class AI {
 								else
 								{
 									Hitx--;
-									throw new System.ArgumentException();
+									throw new IllegalArgumentException();
 								}
 							case 3:
 								//testing to the south
@@ -200,7 +211,7 @@ public class AI {
 								else
 								{
 									Hity++;
-									throw new System.ArgumentException();
+									throw new IllegalArgumentException();
 								}
 							case 4:
 								//testing to the west
@@ -230,14 +241,15 @@ public class AI {
 									{
 										attempt = 5;
 									}
-									throw new System.ArgumentException();
+									throw new IllegalArgumentException();
 								}
 							default:
 								Hit = false;
 								break;
 						}
 					}
-					Random_Coor(out x, out y, arrx, arry);
+                                        x = rand.getX();
+                                        y = rand.getY();
 
 					valid = Board.Check_Valid(Right_Board, x, y);
 					hit = Board.Check_Hit(Right_Board, x, y);
@@ -247,7 +259,7 @@ public class AI {
 
 					if (hit && valid)
 					{
-						Console.WriteLine("AI Hit");
+						System.out.println("AI Hit");
 						Right_Board[x][y] = 'H';
 						Hitx = x;
 						Hity = y;
@@ -256,11 +268,11 @@ public class AI {
 					}
 					else if (!hit && valid)
 					{
-						Console.WriteLine("AI Missed");
+						System.out.println("AI Missed");
 						Right_Board[x][y] = 'X';
 					}
 				}
-				catch
+				catch(Exception e)
 				{
 					attempt++;
 					Broken = true;

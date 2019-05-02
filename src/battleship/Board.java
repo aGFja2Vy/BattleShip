@@ -1,8 +1,12 @@
 package battleship;
 
+import java.io.IOException;
+import static java.lang.System.in;
+import java.util.Scanner;
+
 public class Board {
     BattleShip Program = new BattleShip();
-		public void Set_Board(char[][] board, int x, int y)
+		public static void Set_Board(char[][] board, int x, int y)
 		{
 			for (int i = 0; i < y; i++)
 			{
@@ -26,13 +30,14 @@ public class Board {
 			return false;
 		}
 
-		public void Set_ship(char[][] board, int arrx, int arry)
+		public static void Set_ship(char[][] board, int arrx, int arry)
 		{
+                    Scanner in = new Scanner(System.in);
 			boolean Broken = false;
-			int Ship5 = Program.Ships[0];
-			int Ship4 = Program.Ships[1];
-			int Ship3 = Program.Ships[2];
-			int Ship2 = Program.Ships[3];
+			int Ship5 = BattleShip.Ships[0];
+			int Ship4 = BattleShip.Ships[1];
+			int Ship3 = BattleShip.Ships[2];
+			int Ship2 = BattleShip.Ships[3];
 			int veiw = 0;
 			int coorx = 0;
 			int coory = 0;
@@ -49,18 +54,9 @@ public class Board {
 					{
 						Broken = false;
 
-						try
-						{
-
-							System.out.println("Where do you want to place your '# # # # #' ship? (x)");
-							coorx = (int) System.in.read() - 1;
-							System.out.println();
-						}
-						catch(Exception e)
-						{
-							System.out.println("Hey! That is not allowed. Try again.");
-							Broken = true;
-						}
+                                                System.out.println("Where do you want to place your '# # # # #' ship? (x)");
+                                                coorx = in.nextInt() - 1;
+                                                System.out.println();
 					}while(Broken);
 
 					do
@@ -70,7 +66,7 @@ public class Board {
 						try
 						{
 							System.out.println("Where do you want to place your '# # # # #' ship? (y)");
-							coory = (int) System.in.read() - 1;
+							coory = in.nextInt() - 1;
 							System.out.println();
 						}
 						catch(Exception e)
@@ -90,7 +86,7 @@ public class Board {
 							System.out.println("How would you like your ship placed?");
 							System.out.println("Top to Bottom: 1");
 							System.out.println("Left to Right: 2");
-							veiw = (int) System.in.read();
+							veiw = in.nextInt() - 1;
 							System.out.println();
 						}
 						catch(Exception e)
@@ -144,7 +140,7 @@ public class Board {
 				}
 
 				Ship5--;
-				Program.clearScreen();
+				BattleShip.clearScreen();
 			}
 
 			while(Ship4 >= 1)
@@ -250,7 +246,7 @@ public class Board {
 				}
 
 				Ship4--;
-				Program.clearScreen();
+				BattleShip.clearScreen();
 			}
 
 			while(Ship3 >= 1)
@@ -353,7 +349,7 @@ public class Board {
 				}
 
 				Ship3--;
-				Program.clearScreen();
+				BattleShip.clearScreen();
 			}
 
 			while(Ship2 >= 1)
@@ -454,7 +450,7 @@ public class Board {
 				}
 
 				Ship2--;
-				Program.clearScreen();
+				BattleShip.clearScreen();
 			} 
 
 		}

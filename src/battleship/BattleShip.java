@@ -7,22 +7,19 @@ import java.util.logging.Logger;
 
 public class BattleShip 
 {
-            Classic Classic = new Classic();
             BufferedReader in = new BufferedReader(new InputStreamReader(System.in)); 
             //Sets the default values for the board size and the default number for the ship sizes
-            public int Ships[] = { 1, 1, 2, 1 };
-            public int ArryValues[] = { 10, 10 };
-            public void clearScreen() 
+            public static int Ships[] = { 1, 1, 2, 1 };
+            public static int ArryValues[] = { 10, 10 };
+            public static void clearScreen() 
             {  
                 System.out.print("\033[H\033[2J");  
                 System.out.flush();  
             } 
             //this runs the menus and essentually the order in which everything should be called 
-            void Main()
+            public static void main (String[] args)
             {
-
-                    //sets the Windows console to a size that will work with the center text function
-                    //Console.SetWindowSize(130, 30);
+                Classic Classic = new Classic();
 
                     //Makes it so that by default the game quits instead of forcing the player to play again
                     boolean quit = true;
@@ -200,7 +197,7 @@ public class BattleShip
                     clearScreen();
             }
 
-            void StartScreen()
+            public static void StartScreen()
             {
                     clearScreen();
                     System.out.println("");
@@ -222,7 +219,7 @@ public class BattleShip
                     clearScreen();
             }
 
-            public void Rules()
+            public static void Rules()
             {
                     clearScreen();
                     CenterText("Help Screen");
@@ -250,7 +247,7 @@ public class BattleShip
                     clearScreen();
             }
 
-            public char Options(int coorx, int coory)
+            public static char Options(int coorx, int coory)
             {
                     boolean Broken = false;
                     boolean Repeat = false;
@@ -339,7 +336,7 @@ public class BattleShip
                     return 'e';
             }
 
-            public char Options()
+            public static char Options()
             {
                     boolean Broken = false;
                     boolean Repeat = false;
@@ -420,12 +417,12 @@ public class BattleShip
             }
             
             //Still trying to get to work correctly so for now it is just a pass through for the future
-            public void CenterText(String str)
+            public static void CenterText(String str)
             {
                     System.out.println(str);
             }
 
-            int MainMenu()
+            public static int MainMenu()
             {
                     //The choice they make gets stored as answer
                     int answer;
@@ -482,7 +479,7 @@ public class BattleShip
                     }
             }
 
-            public void SetUp()
+            public static void SetUp()
             {
                     //setup for the answer
                     int answer_int = 0;
@@ -641,7 +638,7 @@ public class BattleShip
 
                                     }
 
-                                    catch(Exception e)
+                                    catch(IOException e)
                                     {
                                             System.out.println("Hey! that is not allowed. Try again");
                                             Broken = true;
