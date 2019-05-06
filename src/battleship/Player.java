@@ -5,11 +5,14 @@
  */
 package battleship;
 
+import java.util.Scanner;
+
 /**
  *
  * @author 956040525
  */
 public class Player {
+    
     BattleShip Program = new BattleShip();
                 public int[][] LastShots = new int[2][5];
 		public int[][] CurrentShot = new int[2][1];
@@ -114,6 +117,7 @@ public class Player {
 
 		public void Attack(char[][] Player_Board, char[][] AI_Board, char[][] Right_Board, int dix, int diy)
 		{
+                    Scanner in = new Scanner(System.in);
 			boolean Repeat = false;
 			boolean loaded = false;
 			boolean Broken = false;
@@ -140,9 +144,9 @@ public class Player {
 								Player.Display_Board(Player_Board, Right_Board, dix, diy);
 								System.out.println();
 								System.out.println("Where would you like to shoot (X)?");
-								x = (int) System.in.read() - 1;
+								x = in.nextInt() - 1;
 								System.out.println("Where would you like to shoot (Y)?");
-								y = (int) System.in.read() - 1;
+								y = in.nextInt() - 1;
 
 								CurrentShot[0][0] = x + 1;
 								CurrentShot[1][0] = y + 1;
@@ -177,9 +181,9 @@ public class Player {
 								Player.Display_Board(Player_Board, Right_Board, dix, diy);
 								System.out.println();
 								System.out.println("Where would you like to shoot (X)?");
-								x = (int) System.in.read() - 1;
+								x = in.nextInt() - 1;
 								System.out.println("Where would you like to shoot (Y)?");
-								y = (int) System.in.read() - 1;
+								y = in.nextInt() - 1;
 
 								CurrentShot[0][0] = x + 1;
 								CurrentShot[1][0] = y + 1;

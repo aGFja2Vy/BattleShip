@@ -498,144 +498,141 @@ public class Board {
 
     public static boolean Check_Placement(char[][] board, int x, int y, int view, int size)
     {
-        return board[x][y] == ' '; 
-        /*
         try{
-        switch(view)
-        {
-        case 1:
-        {
-        if(board[x][y] == ' ')
-        {
-        switch(size)
-        {
-        case 2:
-        {
-        if(board[x][y+1] == ' ')
-        {
-        return true;
-        }
-        else
-        {
-        return false;
-        }
-        }
-        case 3:
-        {
-        if((board[x][y+1] == ' ') && (board[x][y+2] == ' '))
-        {
-        return true;
-        }
-        else
-        {
-        return false;
-        }
-        }
-        case 4:
-        {
-        if((board[x][y+1] == ' ') && (board[x][y+2] == ' ') && (board[x][y+3] == ' '))
-        {
-        return true;
-        }
-        else
-        {
-        return false;
-        }
-        }
-        case 5:
-        {
-        if((board[x][y+1] == ' ') && (board[x][y+2] == ' ') && (board[x][y+3] == ' ') && (board[x][y+4] == ' '))
-        {
-        return true;
-        }
-        else
-        {
-        return false;
-        }
-        }
-        default:
-        {
-        return false;
-        }
-        }
-        }
-        else
-        {
-        return false;
-        }
-        }
-        case 2:
-        {
-        if(board[x][y] == ' ')
-        {
-        switch(size)
-        {
-        case 2:
-        {
-        if(board[x+1][y] == ' ')
-        {
-        return true;
-        }
-        else
-        {
-        return false;
-        }
-        }
-        case 3:
-        {
-        if((board[x+1][y] == ' ') && (board[x+2][y] == ' '))
-        {
-        return true;
-        }
-        else
-        {
-        return false;
-        }
-        }
-        case 4:
-        {
-        if((board[x+1][y] == ' ') && (board[x+2][y] == ' ') && (board[x+3][y] == ' '))
-        {
-        return true;
-        }
-        else
-        {
-        return false;
-        }
-        }
-        case 5:
-        {
-        if((board[x+1][y] == ' ') && (board[x+2][y] == ' ') && (board[x+3][y] == ' ') && (board[x+4][y] == ' '))
-        {
-        return true;
-        }
-        else
-        {
-        return false;
-        }
-        }
-        default:
-        {
-        return false;
-        }
-        }
-        }
-        else
-        {
-        return false;
-        }
-        }
-        default:
-        {
-        return false;
-        }
-        }
+            switch(view)
+            {
+                case 1:
+                {
+                    if(board[x][y] == ' ')
+                    {
+                        switch(size)
+                        {
+                            case 2:
+                            {
+                                if(board[x][y+1] == ' ')
+                                {
+                                    return true;
+                                }
+                                else
+                                {
+                                    return false;
+                                }
+                            }
+                            case 3:
+                            {
+                                if((board[x][y+1] == ' ') && (board[x][y+2] == ' '))
+                                {
+                                    return true;
+                                }
+                                else
+                                {
+                                    return false;
+                                }
+                            }
+                            case 4:
+                            {
+                                if((board[x][y+1] == ' ') && (board[x][y+2] == ' ') && (board[x][y+3] == ' '))
+                                {
+                                    return true;
+                                }
+                                else
+                                {
+                                    return false;
+                                }
+                            }
+                            case 5:
+                            {
+                                if((board[x][y+1] == ' ') && (board[x][y+2] == ' ') && (board[x][y+3] == ' ') && (board[x][y+4] == ' '))
+                                {
+                                    return true;
+                                }
+                                else
+                                {
+                                    return false;
+                                }
+                            }
+                            default:
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                case 2:
+                {
+                    if(board[x][y] == ' ')
+                    {
+                        switch(size)
+                        {
+                            case 2:
+                            {
+                                if(board[x+1][y] == ' ')
+                                {
+                                    return true;
+                                }
+                                else
+                                {
+                                    return false;
+                                }
+                            }
+                            case 3:
+                            {
+                                if((board[x+1][y] == ' ') && (board[x+2][y] == ' '))
+                                {
+                                    return true;
+                                }
+                                else
+                                {
+                                    return false;
+                                }
+                            }
+                            case 4:
+                            {
+                                if((board[x+1][y] == ' ') && (board[x+2][y] == ' ') && (board[x+3][y] == ' '))
+                                {
+                                    return true;
+                                }
+                                else
+                                {
+                                    return false;
+                            }
+                                }
+                            case 5:
+                            {
+                                if((board[x+1][y] == ' ') && (board[x+2][y] == ' ') && (board[x+3][y] == ' ') && (board[x+4][y] == ' '))
+                                {
+                                    return true;
+                                }
+                                else
+                                {
+                                    return false;
+                                }
+                            }
+                            default:
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                default:
+                {
+                    return false;
+                }
+            }
         }
         catch(Exception e)
         {
         System.out.println("Exception caught");
         return false;
         }
-         */
     }
 }

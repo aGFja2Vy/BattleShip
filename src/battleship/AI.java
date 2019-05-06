@@ -9,16 +9,17 @@ public class AI {
 		private static int Hity;
 		private static boolean Hit = false;
 		private static int attempt = 0;
+                public static int[] RandomCoordinates = new int[2];
                 
-                
-		public RandomCoordinates setRandomValues()
+		public void setRandomValues()
 		{
                     System.out.println("Doing Something");
                     int x = rand.nextInt(BattleShip.ArryValues[0]);
                     int y = rand.nextInt(BattleShip.ArryValues[1]);
                     System.out.println("X = " + x + "\n" + "y = " + y + "\n");
                         
-                    return new RandomCoordinates(x,y);
+                    RandomCoordinates[0] = x;
+                    RandomCoordinates[1] = y;
 
 		}
 
@@ -87,7 +88,6 @@ public class AI {
 
 		public void AI_Setup(char[][] board, int arrx, int arry)
 		{
-                    RandomCoordinates rands = setRandomValues();
 			int Ship5 = BattleShip.Ships[0];
 			int Ship4 = BattleShip.Ships[1];
 			int Ship3 = BattleShip.Ships[2];
@@ -100,35 +100,41 @@ public class AI {
 			while (Ship5 > 0)
 			{
                                 setRandomValues();
-				x = rands.getX();
+				x = RandomCoordinates[0];
                                 System.out.println("x = " + x);
-                                y = rands.getY();
+                                y = RandomCoordinates[1];
                                 System.out.println("y = " + y);
 				view = Random_View();
 				worked = Ship_Placement(board, x, y, view, 5);
                                 System.out.println("did it work? " + worked);
 				if (worked)
-					Ship5--;
+                                {
+                                    Ship5 = Ship5 - 1;
+                                    System.out.println("There are this many ship5 left " + Ship5);
+                                }
 			}
 			while (Ship4 > 0)
 			{
                                 setRandomValues();
-				x = rands.getX();
+				x = RandomCoordinates[0];
                                 System.out.println("x = " + x);
-                                y = rands.getY();
+                                y = RandomCoordinates[1];
                                 System.out.println("y = " + y);
 				view = Random_View();
 				worked = Ship_Placement(board, x, y, view, 4);
                                 System.out.println("did it work? " + worked);
 				if (worked)
-					Ship4--;
+                                {
+                                    Ship4 = Ship4 - 1;
+                                    System.out.println("There are this many ship4 left " + Ship4);
+                                }
 			}
 			while (Ship3 > 0)
 			{
                                 setRandomValues();
-				x = rands.getX();
+				x = RandomCoordinates[0];
                                 System.out.println("x = " + x);
-                                y = rands.getY();
+                                y = RandomCoordinates[1];
                                 System.out.println("y = " + y);
 				view = Random_View();
 				worked = Ship_Placement(board, x, y, view, 3);
@@ -139,9 +145,9 @@ public class AI {
 			while (Ship2 > 0)
 			{
                                 setRandomValues();
-				x = rands.getX();
+				x = RandomCoordinates[0];
                                 System.out.println("x = " + x);
-                                y = rands.getY();
+                                y = RandomCoordinates[1];
                                 System.out.println("y = " + y);
 				view = Random_View();
 				worked = Ship_Placement(board, x, y, view, 2);
@@ -154,7 +160,6 @@ public class AI {
 
 		public void Attack(char[][] AI_Board, char[][] Right_Board, int arrx, int arry)
 		{
-                        RandomCoordinates rands = setRandomValues();
 			boolean Broken = false;
 			boolean valid = false;
 			boolean hit = false;
@@ -277,8 +282,8 @@ public class AI {
 						}
 					}
                                         setRandomValues();
-                                        x = rands.getX();
-                                        y = rands.getY();
+                                        x = RandomCoordinates[0];
+                                        y = RandomCoordinates[1];
 
 					valid = Board.Check_Valid(Right_Board, x, y);
 					hit = Board.Check_Hit(Right_Board, x, y);

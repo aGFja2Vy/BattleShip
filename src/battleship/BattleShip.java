@@ -1,22 +1,23 @@
-package battleship;
-import java.io.BufferedReader; 
+package battleship; 
 import java.io.IOException; 
-import java.io.InputStreamReader; 
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class BattleShip 
 {
-            BufferedReader in = new BufferedReader(new InputStreamReader(System.in)); 
+            Scanner in = new Scanner(System.in); 
+            
             //Sets the default values for the board size and the default number for the ship sizes
             public static int Ships[] = { 1, 1, 2, 1 };
             public static int ArryValues[] = { 10, 10 };
+            
             public static void clearScreen() 
             {  
                 for (int i = 0; i < 50; ++i) System.out.println(); 
                 System.out.flush();  
-            } 
+            }
+            
             //this runs the menus and essentually the order in which everything should be called 
             public static void main (String[] args)
             {
@@ -207,7 +208,7 @@ public class BattleShip
                     System.out.println("");
                     CenterText("Welcome to Battleship, the C# version");
                     CenterText("Press any button to continue...");
-                    in.nextInt();
+                    in.next();
                     clearScreen();
             }
 
