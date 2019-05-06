@@ -9,10 +9,10 @@ package battleship;
  *
  * @author 956040525
  */
-final class RandomCoordinates {
+public class RandomCoordinates {
     
-    private final int x;
-    private final int y;
+    public final int x;
+    public final int y;
 
     public RandomCoordinates(int x, int y) 
     {

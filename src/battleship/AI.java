@@ -11,10 +11,12 @@ public class AI {
 		private static int attempt = 0;
                 
                 
-		public RandomCoordinates Something()
+		public RandomCoordinates setRandomValues()
 		{
-                    int x = rand.nextInt(Program.ArryValues[0]);
-                    int y = rand.nextInt(Program.ArryValues[1]);
+                    System.out.println("Doing Something");
+                    int x = rand.nextInt(BattleShip.ArryValues[0]);
+                    int y = rand.nextInt(BattleShip.ArryValues[1]);
+                    System.out.println("X = " + x + "\n" + "y = " + y + "\n");
                         
                     return new RandomCoordinates(x,y);
 
@@ -28,10 +30,20 @@ public class AI {
 
 		public static boolean Ship_Placement(char[][] board, int x, int y, int view, int ship_Size)
 		{
+                        System.out.println("View = " + view);
+                        
 			boolean valid = Board.Check_Placement(board, x, y, view, ship_Size);
+                        
+                        System.out.println();
+                        System.out.println();
+                        System.out.println("Is it valid? " + valid);
+                        System.out.println();
+                        System.out.println();
 
 			if (!valid)
+                        {
 				return false;
+                        }
 
 			if (view == 1)
 			{
@@ -75,7 +87,7 @@ public class AI {
 
 		public void AI_Setup(char[][] board, int arrx, int arry)
 		{
-                    RandomCoordinates rands = Something();
+                    RandomCoordinates rands = setRandomValues();
 			int Ship5 = BattleShip.Ships[0];
 			int Ship4 = BattleShip.Ships[1];
 			int Ship3 = BattleShip.Ships[2];
@@ -83,41 +95,57 @@ public class AI {
 			int x = 0;
                         int y = 0;
                         int view = 0;
-			boolean worked = false;
+			boolean worked = true;
 
 			while (Ship5 > 0)
 			{
+                                setRandomValues();
 				x = rands.getX();
+                                System.out.println("x = " + x);
                                 y = rands.getY();
+                                System.out.println("y = " + y);
 				view = Random_View();
 				worked = Ship_Placement(board, x, y, view, 5);
+                                System.out.println("did it work? " + worked);
 				if (worked)
 					Ship5--;
 			}
 			while (Ship4 > 0)
 			{
+                                setRandomValues();
 				x = rands.getX();
+                                System.out.println("x = " + x);
                                 y = rands.getY();
+                                System.out.println("y = " + y);
 				view = Random_View();
 				worked = Ship_Placement(board, x, y, view, 4);
+                                System.out.println("did it work? " + worked);
 				if (worked)
 					Ship4--;
 			}
 			while (Ship3 > 0)
 			{
+                                setRandomValues();
 				x = rands.getX();
+                                System.out.println("x = " + x);
                                 y = rands.getY();
+                                System.out.println("y = " + y);
 				view = Random_View();
 				worked = Ship_Placement(board, x, y, view, 3);
+                                System.out.println("did it work? " + worked);
 				if (worked)
 					Ship3--;
 			}
 			while (Ship2 > 0)
 			{
+                                setRandomValues();
 				x = rands.getX();
+                                System.out.println("x = " + x);
                                 y = rands.getY();
+                                System.out.println("y = " + y);
 				view = Random_View();
 				worked = Ship_Placement(board, x, y, view, 2);
+                                System.out.println("did it work? " + worked);
 				if (worked)
 					Ship2--;
 			}
@@ -126,7 +154,7 @@ public class AI {
 
 		public void Attack(char[][] AI_Board, char[][] Right_Board, int arrx, int arry)
 		{
-                        RandomCoordinates rand = Something();
+                        RandomCoordinates rands = setRandomValues();
 			boolean Broken = false;
 			boolean valid = false;
 			boolean hit = false;
@@ -248,8 +276,9 @@ public class AI {
 								break;
 						}
 					}
-                                        x = rand.getX();
-                                        y = rand.getY();
+                                        setRandomValues();
+                                        x = rands.getX();
+                                        y = rands.getY();
 
 					valid = Board.Check_Valid(Right_Board, x, y);
 					hit = Board.Check_Hit(Right_Board, x, y);
@@ -272,7 +301,7 @@ public class AI {
 						Right_Board[x][y] = 'X';
 					}
 				}
-				catch(Exception e)
+				catch(IllegalArgumentException e)
 				{
 					attempt++;
 					Broken = true;
