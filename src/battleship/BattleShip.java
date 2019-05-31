@@ -94,7 +94,7 @@ public class BattleShip
 
                                                     do
                                                     {
-                                                            //ClassicAdv.Game();
+                                                            ClassicAdv.Game();
 
                                                             do
                                                             {
@@ -207,7 +207,7 @@ public class BattleShip
                     System.out.println("");
                     System.out.println("");
                     CenterText("Welcome to Battleship, the C# version");
-                    CenterText("Press any button to continue...");
+                    CenterText("Press any button than Enter to continue...");
                     in.next();
                     clearScreen();
             }
@@ -233,9 +233,9 @@ public class BattleShip
                     System.out.println();
                     CenterText("Press the H key to return to this menu after any round.");
                     System.out.println();
-                    CenterText("Press any button to continue...");
+                    CenterText("Press any button than Enter to continue...");
                     
-                    in.nextInt();
+                    in.next();
                     
                     clearScreen();
             }
@@ -430,8 +430,8 @@ public class BattleShip
                     {
                             System.out.println("Choose a game mode.");
                             System.out.println("1: Classic (default)");
-                            System.out.println("2: Classic++");
-                            System.out.println("3: AI only mode");
+                            System.out.println("2: Classic++ (Work in progress)");
+                            //System.out.println("3: AI only mode");
                             System.out.println("10: Show rules and game mode explanations.");
                             try
                             {
@@ -450,16 +450,6 @@ public class BattleShip
                                             clearScreen();
                                             System.out.println("You choose Classic game mode.");
                                             return 1;
-
-                                    case 2:
-                                            //returns 2 for the classic++ game mode
-                                            clearScreen();
-                                            System.out.println("You choose Classic++.");
-                                            return 2;
-                                    case 3:
-                                            //returns 3
-                                            return 3;
-
 
                                     case 10:
                                             //tells the player what the options are and what the differences are
@@ -488,9 +478,12 @@ public class BattleShip
                     System.out.println("Would you like to change the number of ships? (Default = 1(# # # # #) 1(# # # #) 2(# # #) 1(# #)) (Y/N)");
 
                     char answer = 'n';
-                try {
-                    answer = (char) System.in.read();
-                } catch (IOException ex) {
+                try 
+                {
+                    answer = in.next().charAt(0);
+                } 
+                catch (Exception ex) 
+                {
                     Logger.getLogger(BattleShip.class.getName()).log(Level.SEVERE, null, ex);
                 }
                     System.out.println();
@@ -576,14 +569,14 @@ public class BattleShip
                     do
                     {
                             Broken = false;
-
+                            
+                            System.out.println("Would you like to change the default board size? (Default = 10x10) (Y/N)");
                             try
                             {
-                                    System.out.println("Would you like to change the default board size? (Default = 10x10) (Y/N)");
-                                    answer = (char) System.in.read();
+                                    answer = in.next().charAt(0);
                                     System.out.println();
                             }
-                            catch(IOException e)
+                            catch(Exception e)
                             {
                                     System.out.println("Hey! That is not allowed. Try again.");
                                     Broken = true;
